@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A First App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <label for="goal">Goal</label>
+      <input type="text" id="goal" v-model="enteredValue" />
+      <!-- se conecta el input mediante v-model con el objeto data -->
+      <button v-on:click="addGoal">Add Goal</button>
+      <!-- con v-on se definen el callback que va a manejar el evento click del botón -->
+      <button v-on:click="removeGoal">Remove Goal</button>
+    </div>
+    <ul>
+      <li v-for="goal in goals">{{ goal }}</li>
+      <!-- se recorre el objeto goals (no es necesario el this) y se pintan -->
+    </ul>
+  </div>
+  <!-- se importa el cdn para poder acceder a vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
